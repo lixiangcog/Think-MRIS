@@ -1,4 +1,4 @@
 # Think-MRIS
 
+<img width="512" height="256" alt="logo" src="https://github.com/user-attachments/assets/a1c65268-cbff-415c-9194-66b0ae9aaf71" />
 
-<img width="1024" height="1024" alt="Gemini_Generated_Image_hqfk1ohqfk1ohqfk" src="https://github.com/user-attachments/assets/ff6edf7a-fa37-4d63-ba98-5b52ba4ca099" />
