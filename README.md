@@ -1,19 +1,26 @@
-# Think-MRIS: Rethinking Medical Referring Image Segmentation via Reward-Optimized Knowledge Injection
+# 🧠 Think-MRIS: Rethinking Medical Referring Image Segmentation via Reward-Optimized Knowledge Injection
 
-<img width="512" height="256" alt="logo" src="https://github.com/user-attachments/assets/a1c65268-cbff-415c-9194-66b0ae9aaf71" />
+<p align="center">
+  <img width="512" height="256" alt="logo" src="https://github.com/user-attachments/assets/a1c65268-cbff-415c-9194-66b0ae9aaf71" />
+</p>
 
+<p align="center">
+  Reward-optimized knowledge injection for medical referring image segmentation.
+</p>
 
-> Note:
-> To maintain compliance with the double-blind review policy, certain components of the code (e.g., data paths, model checkpoints, scripts) have been intentionally removed or obfuscated.
+> 📌 **Note**  
+> To maintain compliance with the double-blind review policy, certain components of the code (e.g., data paths, model checkpoints, and scripts) have been intentionally removed or obfuscated.  
 > These omissions do not affect the understanding of the method. A fully runnable version will be released after the review process.
 
-## Training
+---
+
+## 🚀 Training
 
 Use the Think-MRIS configuration:
 
 ```bash
 bash training_scripts/run_think_mris_7b.sh
-```
+````
 
 Core config:
 
@@ -29,7 +36,9 @@ worker:
     compute_score: think_mris
 ```
 
-## Inference
+---
+
+## 🔍 Inference
 
 The multi-object inference script now defaults to a Think-MRIS model path and uses a medical referring prompt style:
 
@@ -40,7 +49,9 @@ python inference_scripts/infer_multi_object.py \
   --text "segment the enhancing tumor core"
 ```
 
-## Evaluation
+---
+
+## 📊 Evaluation
 
 Use:
 
