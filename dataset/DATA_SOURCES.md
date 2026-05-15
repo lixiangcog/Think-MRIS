@@ -1,6 +1,8 @@
 
 ## Summary of the public datasets included in MRIS-Bench
 
+https://huggingface.co/datasets/lixiang007666/MRIS-Bench
+
 **Note:** if you plan to use these datasets, be sure to follow the citation guidelines provided by the original authors.
 
 **Table.** Summary of the public datasets included in MRIS-Bench. MRIS-Bench is curated from 22 public medical imaging datasets and covers 20 anatomical structure categories across five imaging modalities.
