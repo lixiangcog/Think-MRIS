@@ -1,0 +1,84 @@
+data:
+  train_files: /workspace/datasets/MRIS-Bench-calibrated-25k
+  val_files: None
+  prompt_key: problem
+  max_prompt_length: 1300
+  max_response_length: 384
+  # 64 prompts x 8 GRPO candidates = the reported global update batch of 512.
+  rollout_batch_size: 64
+  shuffle: true
+  seed: 42
+  max_pixels: 409600
+  min_pixels: 3136
+  max_side_length: 640
+  # The provided Docker container has a 64 MiB /dev/shm; keep image loading in
+  # the trainer process to avoid DataLoader shared-memory bus errors.
+  num_workers: 0
+  # Keep the final non-divisible batch so every retained training row is seen.
+  drop_last: false
+
+algorithm:
+  adv_estimator: grpo
+  kl_coef: 0.0
+
+worker:
+  actor:
+    global_batch_size: 64
+    micro_batch_size_per_device_for_update: 8
+    micro_batch_size_per_device_for_experience: 8
+    max_grad_norm: 1.0
+    use_kl_loss: true
+    kl_loss_coef: 5.0e-3
+    kl_loss_type: low_var_kl
+    model:
+      model_path: Qwen/Qwen2.5-VL-7B-Instruct
+      enable_gradient_checkpointing: true
+      # SDPA is available in the paper's stock PyTorch 2.6 environment. Set to
+      # flash_attention_2 only when a matching prebuilt FlashAttention wheel or
+      # a CUDA toolkit with nvcc is present.
+      attn_implementation: sdpa
+      lora_rank: 8
+      lora_alpha: 16
+      lora_dropout: 0.0
+      lora_target_modules: all-linear
+    optim:
+      lr: 1.0e-6
+      weight_decay: 1.0e-2
+    fsdp:
+      param_offload: false
+      optimizer_offload: false
+      torch_dtype: bf16
+    offload:
+      param_offload: true
+      optimizer_offload: true
+
+  rollout:
+    temperature: 1.0
+    tensor_parallel_size: 2
+    gpu_memory_utilization: 0.6
+    n: 8
+    enable_chunked_prefill: true
+    limit_images: 1
+    limit_videos: 0
+    min_pixels: 3136
+    max_pixels: 409600
+
+  ref:
+    offload:
+      param_offload: true
+
+  reward:
+    reward_type: function
+    compute_score: think_mris
+
+trainer:
+  total_episodes: 24
+  logger: ["console"]
+  project_name: think_mris
+  n_gpus_per_node: 8
+  nnodes: 1
+  save_freq: 100
+  test_freq: 100000
+  val_before_train: false
+  val_only: false
+
