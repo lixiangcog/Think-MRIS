@@ -16,7 +16,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--evaluation_dir", required=True, type=Path)
     parser.add_argument(
         "--dataset_dir",
-        default=Path("/workspace/datasets/MRIS-Bench-calibrated-25k-paper-v4-final"),
+        default=Path("/workspace/datasets/MRIS-Bench-calibrated-25k-paper-v4-final-integer"),
         type=Path,
     )
     parser.add_argument("--expected_rows", default=5162, type=int)
