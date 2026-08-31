@@ -19,7 +19,7 @@ export TORCHDYNAMO_DISABLE="${TORCHDYNAMO_DISABLE:-1}"
 
 PYTHON_BIN="${PYTHON_BIN:-/workspace/conda-envs/think-mris/bin/python}"
 MODEL_PATH="${MODEL_PATH:-/workspace/pretrained_models/Qwen2.5-VL-7B-Instruct}"
-TRAIN_DATA="${TRAIN_DATA:-/workspace/datasets/MRIS-Bench-calibrated-25k-paper-v4-compact}"
+TRAIN_DATA="${TRAIN_DATA:-/workspace/datasets/MRIS-Bench-calibrated-25k-paper-v4-final}"
 N_GPUS="${N_GPUS:-4}"
 ROLLOUT_BATCH_SIZE="${ROLLOUT_BATCH_SIZE:-64}"
 ROLLOUT_N="${ROLLOUT_N:-8}"
