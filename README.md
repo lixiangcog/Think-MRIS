@@ -5,6 +5,8 @@ medical referring image segmentation.
 
 Dataset: [MRIS-Bench](https://huggingface.co/datasets/lixiangcog/MRIS-Bench)
 
+The associated manuscript is currently under submission. The full dataset, code, and detailed metadata will be released after the review process.
+
 ## Installation
 
 ```bash
