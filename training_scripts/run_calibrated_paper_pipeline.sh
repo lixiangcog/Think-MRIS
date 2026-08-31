@@ -4,7 +4,7 @@ set -euo pipefail
 
 ROOT="${ROOT:-/workspace/Think-MRIS}"
 PYTHON_BIN="${PYTHON_BIN:-/workspace/conda-envs/think-mris/bin/python}"
-DATASET_PATH="${DATASET_PATH:-/workspace/datasets/MRIS-Bench-calibrated-25k-paper-v4-final}"
+DATASET_PATH="${DATASET_PATH:-/workspace/datasets/MRIS-Bench-calibrated-25k-paper-v4-final-integer}"
 CHECKPOINT_ROOT="${CHECKPOINT_ROOT:-${ROOT}/checkpoints/think_mris_paper_aligned/qwen7b_calibrated25k_paper_v4_24ep_4gpu}"
 EVAL_DIR="${EVAL_DIR:-${ROOT}/evaluation_outputs/paper_aligned_v4_full_test}"
 STATE_DIR="${STATE_DIR:-${ROOT}/run_state/paper_aligned_pipeline}"

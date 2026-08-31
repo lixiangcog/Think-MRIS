@@ -44,7 +44,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--processor_path", default=None)
     parser.add_argument(
         "--test_data_path",
-        default="/workspace/datasets/MRIS-Bench-calibrated-25k-paper-v4-final",
+        default="/workspace/datasets/MRIS-Bench-calibrated-25k-paper-v4-final-integer",
     )
     parser.add_argument("--split", default="test")
     parser.add_argument("--output_dir", required=True)

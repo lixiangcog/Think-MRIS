@@ -9,7 +9,7 @@ export TRANSFORMERS_CACHE="${THINK_MRIS_TRANSFORMERS_CACHE:-${HF_HUB_CACHE}}"
 
 REASONING_MODEL_PATH="${REASONING_MODEL_PATH:?set REASONING_MODEL_PATH to a merged Hugging Face checkpoint}"
 PROCESSOR_PATH="${PROCESSOR_PATH:-${REASONING_MODEL_PATH}}"
-TEST_DATA_PATH="${TEST_DATA_PATH:-/workspace/datasets/MRIS-Bench-calibrated-25k-paper-v4-final}"
+TEST_DATA_PATH="${TEST_DATA_PATH:-/workspace/datasets/MRIS-Bench-calibrated-25k-paper-v4-final-integer}"
 OUTPUT_DIR="${OUTPUT_DIR:-/workspace/Think-MRIS/evaluation_outputs/calibrated-full-test}"
 BATCH_SIZE="${BATCH_SIZE:-1}"
 MAX_NEW_TOKENS="${MAX_NEW_TOKENS:-384}"

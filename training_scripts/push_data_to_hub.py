@@ -20,7 +20,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--dataset_dir",
         type=Path,
-        default=Path("/workspace/datasets/MRIS-Bench-calibrated-25k-paper-v4-final"),
+        default=Path("/workspace/datasets/MRIS-Bench-calibrated-25k-paper-v4-final-integer"),
     )
     parser.add_argument(
         "--documentation",
@@ -78,8 +78,13 @@ def main() -> None:
         raise RuntimeError("unexpected compact-solution key removal")
     if audit["input_image_manifest_sha256"] != audit["output_image_manifest_sha256"]:
         raise RuntimeError("image-byte parity check failed")
-    if audit["input_non_split_content_sha256"] != audit["output_non_split_content_sha256"]:
+    is_integer_scores = audit.get("schema_variant") == "paper_aligned_v4_integer_scores"
+    if not is_integer_scores and audit["input_non_split_content_sha256"] != audit["output_non_split_content_sha256"]:
         raise RuntimeError("non-split-content parity check failed")
+    if is_integer_scores:
+        score_audit = audit.get("score_audit", {})
+        if not score_audit.get("checks", {}).get("all_checks_passed"):
+            raise RuntimeError("integer score audit did not pass")
 
     api = HfApi(token=token)
     identity = api.whoami(token=token)
