@@ -21,7 +21,20 @@ def _answer_objects(text: str) -> List[Dict[str, Any]]:
         value = json.loads(match.group(1))
     except (TypeError, ValueError, json.JSONDecodeError):
         return []
-    return value if isinstance(value, list) else []
+    # Generation backends occasionally wrap an otherwise valid answer in an
+    # extra JSON list. Normalize such wrappers before scoring so one malformed
+    # nesting level cannot abort an entire distributed rollout.
+    objects: List[Dict[str, Any]] = []
+
+    def collect(item: Any) -> None:
+        if isinstance(item, dict):
+            objects.append(item)
+        elif isinstance(item, list):
+            for child in item:
+                collect(child)
+
+    collect(value)
+    return objects
 
 
 def _ground_truth_payload(ground_truth: str) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
@@ -43,6 +56,8 @@ def _ground_truth_payload(ground_truth: str) -> Tuple[List[Dict[str, Any]], Dict
 
 
 def _bbox(item: Dict[str, Any]) -> List[float]:
+    if not isinstance(item, dict):
+        return []
     value = item.get("bbox_2d", item.get("bbox", []))
     if not isinstance(value, list) or len(value) != 4:
         return []
