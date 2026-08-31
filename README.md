@@ -20,7 +20,7 @@ python prepare_dataset/calibrate_mris_bench.py
 bash training_scripts/run_think_mris_7b.sh
 ```
 
-The paper-aligned dataset preparation scripts are:
+
 
 ```bash
 python prepare_dataset/repartition_paper_v4.py
