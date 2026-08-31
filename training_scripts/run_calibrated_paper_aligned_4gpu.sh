@@ -28,6 +28,7 @@ TENSOR_PARALLEL_SIZE="${TENSOR_PARALLEL_SIZE:-1}"
 GPU_MEMORY_UTILIZATION="${GPU_MEMORY_UTILIZATION:-0.45}"
 MAX_NUM_BATCHED_TOKENS="${MAX_NUM_BATCHED_TOKENS:-4096}"
 MAX_NUM_SEQS="${MAX_NUM_SEQS:-64}"
+ENABLE_CHUNKED_PREFILL="${ENABLE_CHUNKED_PREFILL:-false}"
 TOTAL_EPISODES="${TOTAL_EPISODES:-24}"
 if [[ -z "${SAVE_FREQ:-}" ]]; then
     TRAIN_ROWS="$("${PYTHON_BIN}" -c \
@@ -70,7 +71,7 @@ fi
     worker.rollout.max_num_batched_tokens="${MAX_NUM_BATCHED_TOKENS}" \
     worker.rollout.max_num_seqs="${MAX_NUM_SEQS}" \
     worker.rollout.enforce_eager=true \
-    worker.rollout.enable_chunked_prefill=true \
+    worker.rollout.enable_chunked_prefill="${ENABLE_CHUNKED_PREFILL}" \
     worker.reward.compute_score=think_mris \
     trainer.project_name=think_mris_paper_alignment \
     trainer.experiment_name="${EXPERIMENT_NAME}" \
