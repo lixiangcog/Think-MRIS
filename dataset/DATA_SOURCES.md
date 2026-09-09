@@ -1,11 +1,10 @@
-
 ## Summary of the public datasets included in MRIS-Bench
 
 https://huggingface.co/datasets/lixiang007666/MRIS-Bench
 
 **Note:** if you plan to use these datasets, be sure to follow the citation guidelines provided by the original authors.
 
-**Table.** Summary of the public datasets included in MRIS-Bench. MRIS-Bench is curated from 22 public medical imaging datasets and covers 20 anatomical structure categories across five imaging modalities.
+**Table.** Summary of the public datasets included in MRIS-Bench. MRIS-Bench is curated from 24 public medical imaging datasets across five imaging modalities and covers diverse anatomical structures and pathological targets.
 
 | Dataset | Class | Modality |
 |---|---|---|
@@ -13,6 +12,8 @@ https://huggingface.co/datasets/lixiang007666/MRIS-Bench
 | REFUGE [2] | Optic disc, Optic cup | CFP |
 | ORIGA [3] | Optic disc, Optic cup | CFP |
 | Drishti_GS [4] | Optic disc, Optic cup | CFP |
+| MAPLES-DR [21] | Macula | CFP |
+| DDR [22] | Hemorrhage, Hard exudate, Soft exudate | CFP |
 | MM-WHS-MRI [5] | Cardiac structures | MR |
 | BraTS2020 [6] | Brain tumor | MR |
 | ADAM [7] | Intracranial aneurysm | MR |
@@ -74,3 +75,7 @@ https://huggingface.co/datasets/lixiang007666/MRIS-Bench
 [19] Silva, Juan, Aymeric Histace, Olivier Romain, Xavier Dray, and Bertrand Granado. “Toward embedded detection of polyps in WCE images for early diagnosis of colorectal cancer.” *International Journal of Computer Assisted Radiology and Surgery* 9, no. 2 (2014): 283–293.
 
 [20] Jha, Debesh, Pia H. Smedsrud, Michael A. Riegler, Pål Halvorsen, Thomas De Lange, Dag Johansen, and Håvard D. Johansen. “Kvasir-SEG: A segmented polyp dataset.” *International Conference on Multimedia Modeling*, 451–462, 2019.
+
+[21] Lepetit-Aimon, Gabriel, Clément Playout, Marie Carole Boucher, Renaud Duval, Michael H. Brent, and Farida Cheriet. “MAPLES-DR: MESSIDOR anatomical and pathological labels for explainable screening of diabetic retinopathy.” *Scientific Data* 11, no. 1 (2024): 914.
+
+[22] Li, Tao, Yingqi Gao, Kai Wang, Song Guo, Hanruo Liu, and Hong Kang. “Diagnostic assessment of deep learning algorithms for diabetic retinopathy screening.” *Information Sciences* 501 (2019): 511–522.
