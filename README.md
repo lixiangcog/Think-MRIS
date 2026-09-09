@@ -11,11 +11,6 @@
 Dataset: https://huggingface.co/datasets/lixiang007666/MRIS-Bench
 
 
-> 📌 **Note**  
-> To maintain compliance with the double-blind review policy, certain components of the code (e.g., data paths, model checkpoints, and scripts) have been intentionally removed or obfuscated.  
-> These omissions do not affect the understanding of the method. A fully runnable version will be released after the review process.
-
----
 
 ## 🚀 Training
 
