@@ -1,4 +1,4 @@
-# MRIS-Bench Data Sources and Supplementary Material
+# MRIS-Bench
 
 This page consolidates the public data sources, dataset-construction protocol, annotation procedure, quality-control process, and supplementary statistics for **MRIS-Bench**.
 
