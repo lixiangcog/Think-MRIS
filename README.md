@@ -3,7 +3,7 @@
 Think-MRIS is an implementation of reward-optimized knowledge injection for
 medical referring image segmentation.
 
-Dataset: [MRIS-Bench](https://huggingface.co/datasets/lixiangcog/MRIS-Bench)
+Dataset: https://github.com/lixiangcog/Think-MRIS/blob/master/dataset/DATA_SOURCES.md
 
 The associated manuscript is currently under submission. The full dataset, code, and detailed metadata will be released after the review process.
 
