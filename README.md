@@ -17,16 +17,7 @@ pip install -e .
 ## Training
 
 ```bash
-python training_scripts/download_dataset.py
-python prepare_dataset/calibrate_mris_bench.py
 bash training_scripts/run_think_mris_7b.sh
-```
-
-
-
-```bash
-python prepare_dataset/repartition_paper_v4.py
-python prepare_dataset/slim_paper_v4.py
 ```
 
 The main configuration is `training_scripts/think_mris_7b.yaml`.
